@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JeysonCorreaMartinez</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/1.0.7/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container">
+
+		<% if notice %>
+		  <p class="alert alert-success"><%= notice %></p>
+		<% end %>
+		<% if alert %>
+		  <p class="alert alert-danger"><%= alert %></p>
+		<% end %>
+
+<%= yield %>
+
+
+		<p class="navbar-text pull-right">
+		<% if user_signed_in? %>
+		  Logged in as <strong><%= current_user.email %></strong>.
+		  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+		  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+		<% else %>
+		  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+		  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+		<% end %>
+		</p>
+</div>
+
+<!--
+     Scripts de graficas estadisticas
+ -->  
+
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jquery.jqplot.js"></script>
+
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.pieRenderer.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.donutRenderer.js"></script>
+  <script class="include" language="javascript" type="text/javascript" src="/assets/graficas/js/jqplot.barRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.categoryAxisRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.enhancedLegendRenderer.js"></script>
+  <script class="include" type="text/javascript" src="/assets/graficas/js/jqplot.pointLabels.js"></script>
+
+  <!--button type = "button" onclick="imagenBase64('barras');">Imagen</button -->
+    <!--
+    Stylos de Graficas estadisticas
+    -->
+
+    <link rel="stylesheet" href="/assets/graficas/css/jquery.jqplot.css">
+</body>
+</html>

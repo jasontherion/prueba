@@ -1,0 +1,40 @@
+<div id="retiros_cuenta" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Realizar retiro </h4>
+      </div>
+      <div class="modal-body">
+       
+	          
+	           <label for="recipient-name" class="control-label">Favor diligencie los datos para el retiro</label>
+	          <%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do%> 
+	            <div class="form-group">
+                <p>
+	            	<label>Cuenta:</label>  <%= select("Cuentas", "id_cuenta", TipoCuenta.all.map {|c| [ c.descripcion, c.id ] }.uniq, :include_blank => true)%>
+	            </p>	
+				  <p>
+				  <label>Cantidad a retirar:</label>  <%= text_field_tag :total_retito, nil, placeholder: "Digita el valor a retirar" %>
+				  </p>
+				
+				
+				
+				  <p>
+				   <%= submit_tag "Aceptar", class: "btn btn-success btn-sm", style: "margin-top: 0px;" %>
+				  </p>
+				  </div>
+				<% end %>
+	          
+	         
+	        
+	          
+   
+      </div>
+     <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" id="btm_carga_base">Cerrar</button>
+        
+      </div>
+    </div>
+  </div>  
+</div>

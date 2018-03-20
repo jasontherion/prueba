@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+<h1>Listado de Pautas</h1>
+<a title="Cargar registros de evaluados al sistema"  type="button" class="btn btn-info" data-toggle="modal" href="#retiros_cuenta">Realizar un retiro</a>
+<table class="table table-bordered" data-pagination="true  ">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Cedula</th>
+      <th>Fecha de retiro</th>
+      <th>Valor del retiro</th>
+      <th colspan="2">Acciones</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @informesDiarios.each do |informe| %>
+      <tr>
+        <td><%= informe.name  %></td>
+        <td><%= informe.dni%></td>
+        <td><%= informe.fecha_retiro %></td>
+        <td><%= informe.valor_retiro%></td>
+      </tr>
+	
+    <% end %>
+       <tr>
+			<td colspan=2> Total: <%= %> </td>
+			<td colspan=4 align="rigth">
+				<nav>
+				  <ul class="pagination">				   
+				        <%#= will_paginate(@informe) %>	     
+				  </ul>
+				</nav> 
+			</td>
+	 </tr>	
+  </tbody>
+
+  <!-- Cargamos el parcial modal de cargar base-->
+<%= render "layouts/modals/modal_retiros" %>
+
+<%= console %>
