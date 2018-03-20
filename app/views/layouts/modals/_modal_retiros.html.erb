@@ -9,7 +9,7 @@
        
 	          
 	           <label for="recipient-name" class="control-label">Favor diligencie los datos para el retiro</label>
-	          <%= form_tag "/search/create", method: :get, remote: true, id: "search-form" do%> 
+	          <%= form_tag "/atm/Index", method: :post, remote: true, id: "search-form" do%> 
 	            <div class="form-group">
                 <p>
 	            	<label>Cuenta:</label>  <%= select("Cuentas", "id_cuenta", TipoCuenta.all.map {|c| [ c.descripcion, c.id ] }.uniq, :include_blank => true)%>

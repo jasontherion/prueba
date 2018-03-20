@@ -15,7 +15,7 @@ development:
   encoding: utf8
   database: 'prueba'
   username: 'postgres'
-  password: ''
+  password: '790821Jason'
   host:     'localhost'
   port: 5433
 

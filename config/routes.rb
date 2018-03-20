@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'atm/Index'
+  post 'atm/Index'
 
   get 'atm/ContarBilletes'
 

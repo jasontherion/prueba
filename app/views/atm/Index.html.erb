@@ -1,6 +1,14 @@
 <p id="notice"><%= notice %></p>
 <h1>Listado de Pautas</h1>
 <a title="Cargar registros de evaluados al sistema"  type="button" class="btn btn-info" data-toggle="modal" href="#retiros_cuenta">Realizar un retiro</a>
+<div> 
+	<h3>Total de billetes del retiro</h3>
+	<% if @datos_salida.count > 0 %>
+		<% @datos_salida[0].each do |billete| %>
+	       <p><%= billete  %></p>
+	   <% end %>
+   <% end %>
+</div>
 <table class="table table-bordered" data-pagination="true  ">
   <thead>
     <tr>
